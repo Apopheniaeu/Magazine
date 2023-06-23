@@ -36,10 +36,12 @@ h1 {
 
 h2 {
   font-family: Programme-Regular, sans-serif;
+  position: absolute;
   color: black;
-  font-size: 30px;
+  font-size: 24px;
+  right: 60px;
+  top: 433px;
   line-height: 0.25;
-  text-align: right;
 }
 
 p {
@@ -201,7 +203,7 @@ body {
   }
 
   .text-container {
-    padding: 30px 50px 0 20px;
+    padding: 0px 50px 75px 20px;
     height: calc(100% - 25px);
     overflow: auto;
     max-height: calc(100vh - 25px);
@@ -225,14 +227,18 @@ body {
   }
 
   .download-symbol {
+    color: rgb(226, 225, 225);
+    font-size: 30px;
     position: absolute;
-    top: 430px;
-    right: 15px;
+    top: 330px;
+    right: 17px;
   }
 
   .sound-symbol {
+    font-size: 35px;
+    color: rgb(226, 225, 225);
     position: absolute;
-    top: 500;
-    right: 15px;
+    top: 30;
+    right: 24px;
   }
 }

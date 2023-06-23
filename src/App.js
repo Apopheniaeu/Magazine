@@ -21,7 +21,7 @@ const App = () => {
     VisualMagazinePage2_3,
     VisualMagazinePage4_5,
     VisualMagazinePage6_7,
-    VisualMagazinePage8
+    VisualMagazinePage8,
   ];
 
   const textMagazinePages = [
@@ -29,7 +29,7 @@ const App = () => {
     TextMagazinePage2_3,
     TextMagazinePage4_5,
     TextMagazinePage6_7,
-    TextMagazinePage8
+    TextMagazinePage8,
   ];
 
   const disableRightClick = (event) => {
@@ -55,15 +55,16 @@ const App = () => {
       <div className="App">
         <div className="text-container">
           <h1>Text One Title</h1>
-          <h2 class="sound-symbol">⏵</h2>
+          <a class="sound-symbol">⏵</a>
           <a href={pdfFile} download>
             <span role="img" className="download-symbol">
               ↓
             </span>
           </a>
-
-          <br />
           <h2>AUTHOR FULL NAME</h2>
+          <br />
+          <br />
+          <br />
           <br />
           <br />
           <br />
@@ -420,7 +421,7 @@ const App = () => {
 
     const magazines = {
       visual: { pages: visualMagazinePages, currentPage },
-      text: { pages: textMagazinePages, currentPage }
+      text: { pages: textMagazinePages, currentPage },
     };
 
     return (
