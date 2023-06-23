@@ -152,7 +152,7 @@ body {
 }
 
 .toggle-input:checked + .toggle-slider {
-  background-color: #2196f3;
+  background-color: #9c9c9c;
   mix-blend-mode: difference;
 }
 
