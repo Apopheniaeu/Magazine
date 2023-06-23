@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
+import DeviceNavigationPage from "./DeviceNavigationPage"
+import Essays from "./Essays"
 import pdfFile from "./texts/ISSUE0-TEXT1.pdf";
 
 const App = () => {
