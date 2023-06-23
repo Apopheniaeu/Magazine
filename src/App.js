@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import DeviceNavigationPage from "./DeviceNavigationPage";
+import Essays from "./Essays";
 import pdfFile from "./texts/ISSUE0-TEXT1.pdf";
 
 const App = () => {
