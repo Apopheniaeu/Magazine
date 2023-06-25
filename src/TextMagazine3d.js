@@ -9,31 +9,33 @@ function TextMagazine3d({ modelPath }) {
     // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // Set alpha to true for transparency
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearAlpha(0); // Set clearAlpha to 0 for transparent background
     containerRef.current.appendChild(renderer.domElement);
 
-    // Lighting setup
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Color: white, Intensity: 0.5
-    scene.add(ambientLight);
-    
-    // Geometry setup
+    // Load the model
     const loader = new GLTFLoader();
     loader.load(modelPath, (gltf) => {
-      scene.add(gltf.scene);
+      const model = gltf.scene;
+
+      // Set the position and scale of the model
+      model.position.set(0, 0, 0); // Optional: Set the desired position of the model
+      model.scale.set(9.5, 19, 1); // Set the scale of the model based on the provided values
+
+      // Add the model to the scene
+      scene.add(model);
+
+      // Animation loop
+      const animate = () => {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      };
+
+      animate();
     });
 
     // Camera position
-    camera.position.z = 100;
-
-    // Animation loop
-    const animate = () => {
-      requestAnimationFrame(animate);
-      renderer.render(scene, camera);
-    };
-
-    animate();
+    camera.position.y = -125;
 
     // Clean up
     return () => {
