@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./styles.css";
 import pdfFile from "./texts/ISSUE0-TEXT1.pdf";
 
-const App = () => {
+function App() {
   const [isMobile, setIsMobile] = useState(false);
   const [showImage, setShowImage] = useState(true);
 
@@ -38,6 +38,31 @@ const App = () => {
     event.preventDefault();
   };
 
+  const scrollToTitle = useRef(null);
+
+  const handleImageClick = (event) => {
+    const image = event.target;
+    const imageHeight = image.offsetHeight;
+    const clickPosition = event.clientY - image.getBoundingClientRect().top;
+    const topPercentage = (clickPosition / imageHeight) * 100;
+
+    if (topPercentage <= 5 && scrollToTitle.current) {
+      scrollToTitle.current.scrollIntoView({ behavior: "smooth" });
+    } else if (
+      event.target.tagName === "A" &&
+      event.target.closest("#static-features")
+    ) {
+      handleBackToTopClick(event);
+    } else {
+      event.stopPropagation();
+    }
+  };
+
+  const handleBackToTopClick = () => {
+    // Scroll back to the image
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   useEffect(() => {
     const checkScreenSize = () => {
       const isMobile = window.innerWidth <= 480;
@@ -64,21 +89,16 @@ const App = () => {
               width: "110%",
               height: "auto",
               marginTop: "75px",
-              cursor: "pointer",
             }}
-            onClick={() => {
-              const element = document.getElementById("textOneTitle");
-              if (element) {
-                element.scrollIntoView();
-              }
-            }}
+            onClick={handleImageClick}
           />
-          <h1 id="textOneTitle">Text One Title</h1>
+          <h1 ref={scrollToTitle} id="textOneTitle">
+            <br />
+            Text One Title
+          </h1>
           <a className="sound-symbol">⏵</a>
-          <a href={pdfFile} download>
-            <span role="img" className="download-symbol">
-              ↓
-            </span>
+          <a className="download-symbol" href={pdfFile} download role="img">
+            ↓
           </a>
           <h2>AUTHOR FULL NAME</h2>
           <br />
@@ -401,7 +421,9 @@ const App = () => {
           <br />
         </div>
         <div className="static-features">
-          <a>01</a>
+          <a href="#top" onClick={handleBackToTopClick}>
+            01
+          </a>
         </div>
       </div>
     );
@@ -481,6 +503,6 @@ const App = () => {
   };
 
   return <Magazine />;
-};
+}
 
 export default App;
