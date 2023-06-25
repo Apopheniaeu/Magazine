@@ -46,21 +46,11 @@ function App() {
     const clickPosition = event.clientY - image.getBoundingClientRect().top;
     const topPercentage = (clickPosition / imageHeight) * 100;
 
-    if (topPercentage <= 5 && scrollToTitle.current) {
+    if (topPercentage <= 14 && scrollToTitle.current) {
       scrollToTitle.current.scrollIntoView({ behavior: "smooth" });
-    } else if (
-      event.target.tagName === "A" &&
-      event.target.closest("#static-features")
-    ) {
-      handleBackToTopClick(event);
     } else {
       event.stopPropagation();
     }
-  };
-
-  const handleBackToTopClick = () => {
-    // Scroll back to the image
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -83,6 +73,7 @@ function App() {
       <div className="App">
         <div className="text-container">
           <img
+            id="Cover"
             src={require("./images/TextMagazine_LowRes_Cover.png")}
             alt="Image"
             style={{
@@ -420,11 +411,9 @@ function App() {
           <br />
           <br />
         </div>
-        <div className="static-features">
-          <a href="#top" onClick={handleBackToTopClick}>
-            01
-          </a>
-        </div>
+        <a href="#" className="static-features">
+          01
+        </a>
       </div>
     );
   }
