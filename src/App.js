@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
-import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import "./styles.css";
-import TextMagazine3d from "./TextMagazine3d";
 import pdfFile from "./texts/ISSUE0-TEXT1.pdf";
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [showModel, setShowModel] = useState(true);
+  const [showImage, setShowImage] = useState(true);
 
   const VisualMagazinePage1 = require("./images/VisualMagazine_p1.png");
   const VisualMagazinePage2_3 = require("./images/VisualMagazine_p2-3.png");
@@ -45,7 +42,7 @@ const App = () => {
     const checkScreenSize = () => {
       const isMobile = window.innerWidth <= 480;
       setIsMobile(isMobile);
-      setShowModel(isMobile); // Update showImage state based on screen size
+      setShowImage(isMobile); // Update showImage state based on screen size
     };
 
     checkScreenSize();
@@ -59,9 +56,15 @@ const App = () => {
   if (isMobile) {
     return (
       <div className="App">
-        {showModel && (
-          <TextMagazine3d modelPath="./artefacts/TextMagazine3d.gltf" />
-        )}
+        <img
+          src={require("./images/TextMagazine_LowRes_Cover.png")}
+          alt="Image"
+          style={{
+            width: "85%",
+            height: "auto",
+            marginTop: "100px",
+          }}
+        />
 
         <div className="text-container">
           <h1>Text One Title</h1>
