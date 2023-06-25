@@ -25,7 +25,7 @@ function TextMagazine3d({ modelPath }) {
     });
 
     // Camera position
-    camera.position.z = 5;
+    camera.position.z = 100;
 
     // Animation loop
     const animate = () => {

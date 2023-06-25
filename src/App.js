@@ -60,7 +60,7 @@ const App = () => {
     return (
       <div className="App">
         {showModel && (
-          <TextMagazine3d modelPath="./artefacts/TextMagazine3d.glb" />
+          <TextMagazine3d modelPath="./artefacts/TextMagazine3d.gltf" />
         )}
 
         <div className="text-container">
