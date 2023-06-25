@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
-import DeviceNavigationPage from "./DeviceNavigationPage"
-import Essays from "./Essays"
 import pdfFile from "./texts/ISSUE0-TEXT1.pdf";
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [showImage, setShowImage] = useState(true);
+
   const VisualMagazinePage1 = require("./images/VisualMagazine_p1.png");
   const VisualMagazinePage2_3 = require("./images/VisualMagazine_p2-3.png");
   const VisualMagazinePage4_5 = require("./images/VisualMagazine_p4-5.png");
@@ -42,6 +42,7 @@ const App = () => {
     const checkScreenSize = () => {
       const isMobile = window.innerWidth <= 480;
       setIsMobile(isMobile);
+      setShowImage(isMobile); // Update showImage state based on screen size
     };
 
     checkScreenSize();
@@ -55,6 +56,12 @@ const App = () => {
   if (isMobile) {
     return (
       <div className="App">
+        {showImage && (
+          <img
+            src="./images/TextMagazine_LowRes_p1.png"
+            alt="Text Magazine Page 1"
+          />
+        )}
         <div className="text-container">
           <h1>Text One Title</h1>
           <a class="sound-symbol">⏵</a>

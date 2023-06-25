@@ -104,11 +104,13 @@ body {
   max-height: 80vh;
 }
 
+/* TOGGEL SLIDER */
 .toggle-container {
   position: absolute;
   top: 50%;
   right: 50px;
   transform: translate(0, -50%);
+  opacity: 0.9;
 }
 
 .toggle-label {
@@ -151,9 +153,9 @@ body {
   z-index: 1;
 }
 
+/* Alternative background when switched to Text Magazine */
 .toggle-input:checked + .toggle-slider {
-  background-color: #9c9c9c;
-  mix-blend-mode: difference;
+  background-color: #c90606;
 }
 
 .toggle-input:checked + .toggle-slider:before {
@@ -177,6 +179,18 @@ body {
 .toggle-slider:before {
   content: "";
   left: 4px; /* Adjust the position of the circular slider */
+}
+
+body::before {
+  /* Used for blanding mode purposes */
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .toggle-slider:after {
