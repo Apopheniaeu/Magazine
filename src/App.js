@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./styles.css";
 import pdfFile from "./texts/ISSUE0-TEXT1.pdf";
 
@@ -56,18 +56,24 @@ const App = () => {
   if (isMobile) {
     return (
       <div className="App">
-        <img
-          src={require("./images/TextMagazine_LowRes_Cover.png")}
-          alt="Image"
-          style={{
-            width: "85%",
-            height: "auto",
-            marginTop: "100px",
-          }}
-        />
-
         <div className="text-container">
-          <h1>Text One Title</h1>
+          <img
+            src={require("./images/TextMagazine_LowRes_Cover.png")}
+            alt="Image"
+            style={{
+              width: "110%",
+              height: "auto",
+              marginTop: "75px",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              const element = document.getElementById("textOneTitle");
+              if (element) {
+                element.scrollIntoView();
+              }
+            }}
+          />
+          <h1 id="textOneTitle">Text One Title</h1>
           <a className="sound-symbol">⏵</a>
           <a href={pdfFile} download>
             <span role="img" className="download-symbol">
