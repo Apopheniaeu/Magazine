@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
+import TextMagazine3d from "./TextMagazine3d";
 import pdfFile from "./texts/ISSUE0-TEXT1.pdf";
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [showImage, setShowImage] = useState(true);
+  const [showModel, setShowModel] = useState(true);
 
   const VisualMagazinePage1 = require("./images/VisualMagazine_p1.png");
   const VisualMagazinePage2_3 = require("./images/VisualMagazine_p2-3.png");
@@ -42,7 +43,7 @@ const App = () => {
     const checkScreenSize = () => {
       const isMobile = window.innerWidth <= 480;
       setIsMobile(isMobile);
-      setShowImage(isMobile); // Update showImage state based on screen size
+      setShowModel(isMobile); // Update showImage state based on screen size
     };
 
     checkScreenSize();
@@ -56,15 +57,12 @@ const App = () => {
   if (isMobile) {
     return (
       <div className="App">
-        {showImage && (
-          <img
-            src="./images/TextMagazine_LowRes_p1.png"
-            alt="Text Magazine Page 1"
-          />
+        {showModel && (
+          <TextMagazine3d modelPath="./models/TextMagazine3d.glb" />
         )}
         <div className="text-container">
           <h1>Text One Title</h1>
-          <a class="sound-symbol">⏵</a>
+          <a className="sound-symbol">⏵</a>
           <a href={pdfFile} download>
             <span role="img" className="download-symbol">
               ↓
@@ -77,7 +75,7 @@ const App = () => {
           <br />
           <br />
           <br />
-          <p class="indented">
+          <p className="indented">
             The poor image is a copy in motion. Its quality is bad, its
             resolution substandard. As it accelerates, it deteriorates. It is a
             ghost of an image, a preview, a thumbnail, an errant idea, an
@@ -96,7 +94,7 @@ const App = () => {
             uncertainty, at the expense of its own substance. The poor image
             tends towards abstraction: it is a visual idea in its very becoming.
           </p>
-          <p class="indented">
+          <p className="indented">
             The poor image is an illicit fifth-generation bastard of an original
             image. Its genealogy is dubious. Its filenames are deliberately
             misspelled. It often defies patrimony, national culture, or indeed
@@ -107,7 +105,7 @@ const App = () => {
             at all. Only digital technology could produce such a dilapidated
             image in the first place.
           </p>
-          <p class="indented">
+          <p className="indented">
             Poor images are the contemporary Wretched of the Screen, the debris
             of audiovisual production, the trash that washes up on the digital
             economies’ shores. They testify to the violent dislocation,
@@ -121,7 +119,7 @@ const App = () => {
           </p>
           <br />
           <b>1. Low Resolutions</b>
-          <p class="indented">
+          <p className="indented">
             But insisting on rich images also had more serious consequences. A
             speaker at a recent conference on the film essay refused to show
             clips from a piece by Humphrey Jennings because no proper film
@@ -130,7 +128,7 @@ const App = () => {
             audience was left to imagine what those images might have looked
             like.
           </p>
-          <p class="indented">
+          <p className="indented">
             In this case the invisibility of the image was more or less
             voluntary and based on aesthetic premises. But it has a much more
             general equivalent based on the consequences of neoliberal policies.
@@ -146,7 +144,7 @@ const App = () => {
             projected in their original resolution before disappearing again
             into the darkness of the archive.
           </p>
-          <p class="indented">
+          <p className="indented">
             This development was of course connected to the neoliberal
             radicalization of the concept of culture as commodity, to the
             commercialization of cinema, its dispersion into multiplexes, and
@@ -165,7 +163,7 @@ const App = () => {
             reappeared on publicly accessible platforms, some of them carefully
             curated (Ubuweb) and some just a pile of stuff (YouTube).
           </p>
-          <p class="indented">
+          <p className="indented">
             At present, there are at least twenty torrents of Chris Marker’s
             film essays available online. If you want a retrospective, you can
             have it. But the economy of poor images is about more than just
@@ -180,7 +178,7 @@ const App = () => {
           </p>
           <br />
           <b>3. Privatization and Piracy</b>
-          <p class="indented">
+          <p className="indented">
             That rare prints of militant, experimental, and classical works of
             cinema as well as video art reappear as poor images is significant
             on another level. Their situation reveals much more than the content
@@ -192,7 +190,7 @@ const App = () => {
             them exemption from its criteria. Their lack of resolution attests
             to their appropriation and displacement.
           </p>
-          <p class="indented">
+          <p className="indented">
             Obviously, this condition is not only connected to the neoliberal
             restructuring of media production and digital technology; it also
             has to do with the post-socialist and postcolonial restructuring of
@@ -207,7 +205,7 @@ const App = () => {
             privatization. On the other hand, even the British Library sells off
             its contents online at astronomical prices.
           </p>
-          <p class="indented">
+          <p className="indented">
             As Kodwo Eshun has noted, poor images circulate partly in the void
             left by state-cinema organizations who find it too difficult to
             operate as a 16/35-mm archive or to maintain any kind of
@@ -224,7 +222,7 @@ const App = () => {
           </p>
           <br />
           <b> 4. Imperfect Cinema </b>
-          <p class="indented">
+          <p className="indented">
             The emergence of poor images reminds one of a classic Third Cinema
             manifesto, For an Imperfect Cinema, by Juan García Espinosa, written
             in Cuba in the late 1960s. Espinosa argues for an imperfect cinema
@@ -236,7 +234,7 @@ const App = () => {
             insists upon its own imperfection, is popular but not consumerist,
             committed without becoming bureaucratic.
           </p>
-          <p class="indented">
+          <p className="indented">
             In his manifesto, Espinosa also reflects on the promises of new
             media. He clearly predicts that the development of video technology
             will jeopardize the elitist position of traditional filmmakers and
@@ -246,7 +244,7 @@ const App = () => {
             Most of all, its visuality is resolutely compromised: blurred,
             amateurish, and full of artifacts.
           </p>
-          <p class="indented">
+          <p className="indented">
             In some way, the economy of poor images corresponds to the
             description of imperfect cinema, while the description of perfect
             cinema represents rather the concept of cinema as a flagship store.
@@ -263,7 +261,7 @@ const App = () => {
             accumulation and to massive (and, to a certain extent, successful)
             attempts at privatization.
           </p>
-          <p class="indented">
+          <p className="indented">
             The networks in which poor images circulate thus constitute both a
             platform for a fragile new common interest and a battleground for
             commercial and national agendas. They contain experimental and
@@ -275,7 +273,7 @@ const App = () => {
             production. Users become the editors, critics, translators, and
             (co-)authors of poor images.
           </p>
-          <p class="indented">
+          <p className="indented">
             Poor images are thus popular images—images that can be made and seen
             by the many. They express all the contradictions of the contemporary
             crowd: its opportunism, narcissism, desire for autonomy and
@@ -288,7 +286,7 @@ const App = () => {
             countless people who cared enough about them to convert them over
             and over again, to add subtitles, reedit, or upload them.
           </p>
-          <p class="indented">
+          <p className="indented">
             In this light, perhaps one has to redefine the value of the image,
             or, more precisely, to create a new perspective for it. Apart from
             resolution and exchange value, one might imagine another form of
@@ -302,7 +300,7 @@ const App = () => {
             data packages that can be integrated into ever-newer combinations
             and sequences.
           </p>
-          <p class="indented">
+          <p className="indented">
             This flattening-out of visual content—the concept-in-becoming of the
             images—positions them within a general informational turn, within
             economies of knowledge that tear images and their captions out of
@@ -321,7 +319,7 @@ const App = () => {
           </p>
           <br />
           <b>5. Comrade, what is your visual bond today?</b>
-          <p class="indented">
+          <p className="indented">
             But, simultaneously, a paradoxical reversal happens. The circulation
             of poor images creates a circuit, which fulfills the original
             ambitions of militant and (some) essayistic and experimental
@@ -330,7 +328,7 @@ const App = () => {
             streams. In the age of file-sharing, even marginalized content
             circulates again and reconnects dispersed worldwide audiences.
           </p>
-          <p class="indented">
+          <p className="indented">
             The poor image thus constructs anonymous global networks just as it
             creates a shared history. It builds alliances as it travels,
             provokes translation or mistranslation, and creates new publics and
@@ -344,7 +342,7 @@ const App = () => {
             is propelled onto new and ephemeral screens stitched together by the
             desires of dispersed spectators.
           </p>
-          <p class="indented">
+          <p className="indented">
             The circulation of poor images thus creates “visual bonds,” as Dziga
             Vertov once called them. This “visual bond” was, according to
             Vertov, supposed to link the workers of the world with each other.
@@ -355,7 +353,7 @@ const App = () => {
             physical sense by mutual excitement, affective attunement, and
             anxiety.
           </p>
-          <p class="indented">
+          <p className="indented">
             But there is also the circulation and production of poor images
             based on cell phone cameras, home computers, and unconventional
             forms of distribution. Its optical connections—collective editing,
@@ -363,7 +361,7 @@ const App = () => {
             coincidental links between producers everywhere, which
             simultaneously constitute dispersed audiences.
           </p>
-          <p class="indented">
+          <p className="indented">
             The circulation of poor images feeds into both capitalist media
             assembly lines and alternative audiovisual economies. In addition to
             a lot of confusion and stupefaction, it also possibly creates
