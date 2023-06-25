@@ -1,23 +1,28 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-function TextMagazine3d() {
+function TextMagazine3d({ modelPath }) {
   const containerRef = useRef(null);
 
   useEffect(() => {
     // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true }); // Set alpha to true for transparency
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // Set alpha to true for transparency
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000000, 0); // Use 0x000000 for black background and 0 for transparency
+    renderer.setClearAlpha(0); // Set clearAlpha to 0 for transparent background
     containerRef.current.appendChild(renderer.domElement);
 
+    // Lighting setup
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Color: white, Intensity: 0.5
+    scene.add(ambientLight);
+    
     // Geometry setup
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+    const loader = new GLTFLoader();
+    loader.load(modelPath, (gltf) => {
+      scene.add(gltf.scene);
+    });
 
     // Camera position
     camera.position.z = 5;
@@ -25,8 +30,6 @@ function TextMagazine3d() {
     // Animation loop
     const animate = () => {
       requestAnimationFrame(animate);
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
       renderer.render(scene, camera);
     };
 
@@ -36,7 +39,7 @@ function TextMagazine3d() {
     return () => {
       renderer.dispose();
     };
-  }, []);
+  }, [modelPath]);
 
   return <div ref={containerRef} />;
 }

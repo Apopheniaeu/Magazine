@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import "./styles.css";
 import TextMagazine3d from "./TextMagazine3d";
 import pdfFile from "./texts/ISSUE0-TEXT1.pdf";
@@ -58,8 +60,9 @@ const App = () => {
     return (
       <div className="App">
         {showModel && (
-          <TextMagazine3d modelPath="./models/TextMagazine3d.glb" />
+          <TextMagazine3d modelPath="./artefacts/TextMagazine3d.glb" />
         )}
+
         <div className="text-container">
           <h1>Text One Title</h1>
           <a className="sound-symbol">⏵</a>
