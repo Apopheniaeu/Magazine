@@ -86,8 +86,38 @@ function App() {
     const clickPosition = event.clientY - image.getBoundingClientRect().top;
     const topPercentage = (clickPosition / imageHeight) * 100;
 
-    if (topPercentage >= 15 && topPercentage <= 29 && scrollToTitle2.current) {
+    if (topPercentage >= 15 && topPercentage <= 23 && scrollToTitle2.current) {
       scrollToTitle2.current.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollToTitle3 = useRef(null);
+
+  const handleImageClick3 = (event) => {
+    const image = event.target;
+    const imageHeight = image.offsetHeight;
+    const clickPosition = event.clientY - image.getBoundingClientRect().top;
+    const topPercentage = (clickPosition / imageHeight) * 100;
+
+    if (topPercentage >= 25 && topPercentage <= 33 && scrollToTitle3.current) {
+      scrollToTitle3.current.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollToTitle4 = useRef(null);
+
+  const handleImageClick4 = (event) => {
+    const image = event.target;
+    const imageHeight = image.offsetHeight;
+    const clickPosition = event.clientY - image.getBoundingClientRect().top;
+    const topPercentage = (clickPosition / imageHeight) * 100;
+
+    if (topPercentage >= 35 && topPercentage <= 43 && scrollToTitle4.current) {
+      scrollToTitle4.current.scrollIntoView({
         behavior: "smooth",
       });
     }
@@ -144,6 +174,8 @@ function App() {
             onClick={(event) => {
               handleImageClick(event);
               handleImageClick2(event);
+              handleImageClick3(event);
+              handleImageClick4(event);
             }}
           />
           <h1 ref={scrollToTitle} id="textOneTitle">
@@ -151,7 +183,6 @@ function App() {
             Text One Title
           </h1>
           <a className="sound-symbol">⏵</a>
-
           <h2>AUTHOR FULL NAME</h2>
           <br />
           <a className="download-symbol" href={pdfFile} download role="img">
@@ -211,35 +242,45 @@ function App() {
           <br />
           <p className="indented">{paragraph1}</p>
           <p className="indented">{paragraph2}</p>
-          <p className="indented">{paragraph3}</p>
+          <p>...</p>
+
+          <h1 ref={scrollToTitle3} id="textTwoTitle">
+            <br />
+            Text Three Title
+          </h1>
+          <a className="sound-symbol">⏵</a>
+          <a className="download-symbol" href={pdfFile} download role="img">
+            ⤓
+          </a>
+          <h2>AUTHOR FULL NAME</h2>
           <br />
-          <b>1. Low Resolutions</b>
-          <p className="indented">{paragraph4}</p>
-          <p className="indented">{paragraph5}</p>
-          <p className="indented">{paragraph6}</p>
-          <p className="indented">{paragraph7}</p>
           <br />
-          <b>3. Privatization and Piracy</b>
-          <p className="indented">{paragraph8}</p>
-          <p className="indented">{paragraph9}</p>
-          <p className="indented">{paragraph10}</p>
           <br />
-          <b> 4. Imperfect Cinema </b>
-          <p className="indented">{paragraph11}</p>
-          <p className="indented">{paragraph12}</p>
-          <p className="indented">{paragraph13}</p>
-          <p className="indented">{paragraph14}</p>
-          <p className="indented">{paragraph15}</p>
-          <p className="indented">{paragraph16}</p>
-          <p className="indented">{paragraph17}</p>
           <br />
-          <b>5. Comrade, what is your visual bond today?</b>
-          <p className="indented">{paragraph18}</p>
-          <p className="indented">{paragraph19}</p>
-          <p className="indented">{paragraph20}</p>
-          <p className="indented">{paragraph21}</p>
-          <p className="indented">{paragraph22}</p>
-          <p className="indented">{paragraph23}</p>
+          <br />
+          <br />
+          <p className="indented">{paragraph1}</p>
+          <p className="indented">{paragraph2}</p>
+          <p>...</p>
+
+          <h1 ref={scrollToTitle4} id="textTwoTitle">
+            <br />
+            Text Four Title
+          </h1>
+          <a className="sound-symbol">⏵</a>
+          <a className="download-symbol" href={pdfFile} download role="img">
+            ⤓
+          </a>
+          <h2>AUTHOR FULL NAME</h2>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <p className="indented">{paragraph1}</p>
+          <p className="indented">{paragraph2}</p>
+          <p>...</p>
         </div>
         <a href="#" className="static-features" onClick={handleClick}>
           ↑
