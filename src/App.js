@@ -87,7 +87,23 @@ function App() {
     const topPercentage = (clickPosition / imageHeight) * 100;
 
     if (topPercentage >= 15 && topPercentage <= 29 && scrollToTitle2.current) {
-      scrollToTitle2.current.scrollIntoView({ behavior: "smooth" });
+      scrollToTitle2.current.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // SCROLL TO TOP NAVIGATION
+
+  const scrollToTop = useRef(null);
+  const scrollToTopRef = useRef(null);
+
+  const handleClick = () => {
+    if (scrollToTopRef.current) {
+      scrollToTopRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   };
 
@@ -106,11 +122,17 @@ function App() {
     };
   }, []);
 
+  // DEVICE SITE
+
   if (isMobile) {
     return (
       <div className="App">
         <div className="text-container">
+          <h3 ref={scrollToTopRef} id="Top">
+            T
+          </h3>
           <img
+            ref={scrollToTop}
             id="Cover"
             src={require("./images/TextMagazine_LowRes_Cover.png")}
             alt="Image"
@@ -129,11 +151,12 @@ function App() {
             Text One Title
           </h1>
           <a className="sound-symbol">⏵</a>
-          <a className="download-symbol" href={pdfFile} download role="img">
-            ↓
-          </a>
+
           <h2>AUTHOR FULL NAME</h2>
           <br />
+          <a className="download-symbol" href={pdfFile} download role="img">
+            ⤓
+          </a>
           <br />
           <br />
           <br />
@@ -177,7 +200,7 @@ function App() {
           </h1>
           <a className="sound-symbol">⏵</a>
           <a className="download-symbol" href={pdfFile} download role="img">
-            ↓
+            ⤓
           </a>
           <h2>AUTHOR FULL NAME</h2>
           <br />
@@ -218,12 +241,14 @@ function App() {
           <p className="indented">{paragraph22}</p>
           <p className="indented">{paragraph23}</p>
         </div>
-        <a href="#" className="static-features">
-          01
+        <a href="#" className="static-features" onClick={handleClick}>
+          ↑
         </a>
       </div>
     );
   }
+
+  // COMPUTER SITE
 
   const Magazine = () => {
     const [currentMagazine, setCurrentMagazine] = useState("visual");

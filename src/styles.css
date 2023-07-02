@@ -43,6 +43,12 @@ h2 {
   line-height: 0.25;
 }
 
+h3 {
+  font-family: Programme-Regular, sans-serif;
+  color: #fafafa;
+  font-size: 1px;
+}
+
 p {
   font-family: Programme-Regular, sans-serif;
   color: black;
@@ -245,33 +251,25 @@ body::before {
     display: inline-block;
   }
 
+  .static-features:active {
+    background-color: whitesmoke;
+  }
+
   .download-symbol {
     color: rgb(226, 225, 225);
-    font-size: 30px;
+    font-size: 37px;
     position: absolute;
     right: 22px;
   }
 
   .sound-symbol {
-    font-size: 35px;
+    font-size: 37px;
     color: rgb(226, 225, 225);
     position: absolute;
     right: 22px;
   }
-
-  .floating-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background-color: #555;
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 9999;
+  html.scroll-transition {
+    scroll-behavior: smooth;
+    transition-duration: 2s; /* Adjust the duration as needed */
   }
 }
