@@ -123,6 +123,36 @@ function App() {
     }
   };
 
+  const scrollToTitle5 = useRef(null);
+
+  const handleImageClick5 = (event) => {
+    const image = event.target;
+    const imageHeight = image.offsetHeight;
+    const clickPosition = event.clientY - image.getBoundingClientRect().top;
+    const topPercentage = (clickPosition / imageHeight) * 100;
+
+    if (topPercentage >= 45 && topPercentage <= 53 && scrollToTitle5.current) {
+      scrollToTitle5.current.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollToTitle6 = useRef(null);
+
+  const handleImageClick6 = (event) => {
+    const image = event.target;
+    const imageHeight = image.offsetHeight;
+    const clickPosition = event.clientY - image.getBoundingClientRect().top;
+    const topPercentage = (clickPosition / imageHeight) * 100;
+
+    if (topPercentage >= 55 && topPercentage <= 63 && scrollToTitle6.current) {
+      scrollToTitle6.current.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  };
+
   // SCROLL TO TOP NAVIGATION
 
   const scrollToTop = useRef(null);
@@ -164,7 +194,7 @@ function App() {
           <img
             ref={scrollToTop}
             id="Cover"
-            src={require("./images/TextMagazine_LowRes_Cover.png")}
+            src={require("./images/TextMagazine_LowRes_Cover_WIP.png")}
             alt="Image"
             style={{
               width: "110%",
@@ -176,6 +206,8 @@ function App() {
               handleImageClick2(event);
               handleImageClick3(event);
               handleImageClick4(event);
+              handleImageClick5(event);
+              handleImageClick6(event);
             }}
           />
           <h1 ref={scrollToTitle} id="textOneTitle">
@@ -230,10 +262,11 @@ function App() {
             Text Two Title
           </h1>
           <a className="sound-symbol">⏵</a>
+          <h2>AUTHOR FULL NAME</h2>
+          <br />
           <a className="download-symbol" href={pdfFile} download role="img">
             ⤓
           </a>
-          <h2>AUTHOR FULL NAME</h2>
           <br />
           <br />
           <br />
@@ -246,13 +279,14 @@ function App() {
 
           <h1 ref={scrollToTitle3} id="textTwoTitle">
             <br />
-            Text Three Title
+            Text Thre Title
           </h1>
           <a className="sound-symbol">⏵</a>
+          <h2>AUTHOR FULL NAME</h2>
+          <br />
           <a className="download-symbol" href={pdfFile} download role="img">
             ⤓
           </a>
-          <h2>AUTHOR FULL NAME</h2>
           <br />
           <br />
           <br />
@@ -268,10 +302,51 @@ function App() {
             Text Four Title
           </h1>
           <a className="sound-symbol">⏵</a>
+          <h2>AUTHOR FULL NAME</h2>
+          <br />
           <a className="download-symbol" href={pdfFile} download role="img">
             ⤓
           </a>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <p className="indented">{paragraph1}</p>
+          <p className="indented">{paragraph2}</p>
+          <p>...</p>
+
+          <h1 ref={scrollToTitle5} id="textTwoTitle">
+            <br />
+            Text Five Title
+          </h1>
+          <a className="sound-symbol">⏵</a>
           <h2>AUTHOR FULL NAME</h2>
+          <br />
+          <a className="download-symbol" href={pdfFile} download role="img">
+            ⤓
+          </a>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <p className="indented">{paragraph1}</p>
+          <p className="indented">{paragraph2}</p>
+          <p>...</p>
+
+          <h1 ref={scrollToTitle6} id="textTwoTitle">
+            <br />
+            Tra. Title
+          </h1>
+          <a className="sound-symbol">⏵</a>
+          <h2>AUTHOR FULL NAME</h2>
+          <br />
+          <a className="download-symbol" href={pdfFile} download role="img">
+            ⤓
+          </a>
           <br />
           <br />
           <br />

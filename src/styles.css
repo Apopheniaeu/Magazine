@@ -256,17 +256,17 @@ body::before {
   }
 
   .download-symbol {
-    color: rgb(226, 225, 225);
+    color: black;
     font-size: 37px;
     position: absolute;
-    right: 22px;
+    right: 25px;
   }
 
   .sound-symbol {
-    font-size: 37px;
-    color: rgb(226, 225, 225);
+    font-size: 32px;
+    color: black;
     position: absolute;
-    right: 22px;
+    right: 25px;
   }
   html.scroll-transition {
     scroll-behavior: smooth;
